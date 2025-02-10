@@ -1,12 +1,7 @@
 import React from 'react';
 import ImageCard from '../ImageCard/ImageCard';
-import { Image } from '../../types';
 import css from './ImageGallery.module.css';
-
-interface ImageGalleryProps {
-  images: Image[];
-  onImageClick: (image: Image) => void;
-}
+import ImageGalleryProps from './types';
 
 const ImageGallery: React.FC<ImageGalleryProps> = ({ images, onImageClick }) => {
   if (images.length === 0) return null;

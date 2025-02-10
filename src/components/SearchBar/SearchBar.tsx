@@ -1,10 +1,7 @@
 import React, { useState } from 'react';
 import { FaSearch } from 'react-icons/fa';
 import css from './SearchBar.module.css';
-
-interface SearchBarProps {
-  onSubmit: (query: string) => void;
-}
+import SearchBarProps from './types';
 
 const SearchBar: React.FC<SearchBarProps> = ({ onSubmit }) => {
   const [query, setQuery] = useState('');

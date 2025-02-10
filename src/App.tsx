@@ -7,7 +7,8 @@ import ImageGallery from './components/ImageGallery/ImageGallery';
 import ErrorMessage from './components/ErrorMessage/ErrorMessage';
 import LoadMoreBtn from './components/LoadMoreBtn/LoadMoreBtn';
 import ImageModal from './components/ImageModal/ImageModal';
-import { Image } from './types';
+import { Image, UnsplashResponse } from './types';
+import Loader from './components/Loader/Loader';
 
 const accessKey = '9RqUm9C6bqIXT72LfqT-UrGTcP1_eKI3PepbZaD3pXY';
 
@@ -25,7 +26,7 @@ const App: React.FC = () => {
     setError(null);
 
     try {
-      const response = await axios.get(
+      const response = await axios.get<UnsplashResponse>(
         `https://api.unsplash.com/search/photos?query=${newQuery}&page=${newPage}&per_page=12&client_id=${accessKey}`
       );
 
@@ -58,7 +59,7 @@ const App: React.FC = () => {
           setIsModalOpen(true);
         }}
       />
-      {/* {loading && <Loader />} */}
+      {loading && <Loader />}
       {images.length > 0 && !loading && (
         <LoadMoreBtn
           onClick={() => {

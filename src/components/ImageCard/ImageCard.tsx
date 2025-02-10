@@ -1,10 +1,4 @@
-import React from 'react';
-import { Image } from '../../types';
-
-interface ImageCardProps {
-  image: Image;
-  onClick: () => void;
-}
+import ImageCardProps from './types';
 
 const ImageCard: React.FC<ImageCardProps> = ({ image, onClick }) => {
   return (
